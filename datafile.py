@@ -1,3 +1,7 @@
+import re
+
+
+
 job_titles = [
     # Core Data Roles
     "Data Scientist",
@@ -185,3 +189,22 @@ work_section = [
     "Career Experience",
     "Career Summary"
 ]
+
+date_patterns = [
+    # Month + Year (e.g., Jan 2023 or January 2023)
+    r"(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{4}",
+
+    # Year Only (e.g., 2023)
+    r"\b\d{4}\b",
+
+    # Month Year - Month Year range (e.g., Jan 2022 - Mar 2023)
+    r"(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{4}\s*(?:–|-|to)\s*(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{4}",
+
+    # Formats like MM/YYYY or M/YYYY
+    r"\b\d{1,2}/\d{4}\b",
+
+    # Present terms
+    r"\bPresent\b|\bCurrent\b"
+]
+
+date_regex = re.compile('|'.join(date_patterns), flags=re.IGNORECASE)
