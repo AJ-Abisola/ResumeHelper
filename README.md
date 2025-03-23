@@ -29,8 +29,8 @@ Streamlit | FastAPI	| spaCy, Sentence Transformers, pdfplumber, dateparser	| Doc
 1. Clone the repo and cd into the folder
     
 ```bash
-    git clone https://github.com/yourusername/resume-matcher.git
-    cd resume-matcher
+    git clone https://github.com/AJ-Abisola/ResumeHelper.git
+    cd ResumeHelper
    ```
 
 2. Environment Prerequisites
