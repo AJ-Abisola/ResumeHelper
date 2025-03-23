@@ -1,8 +1,8 @@
-from backend.models.parser import parser
-from backend.utils import supportfuncs
+from models.parser import parser
+from utils import supportfuncs
 
 
-def feedback_generator():
+def feedback_generator(path,jd_text):
 
     resume = parser(path)
     jd = parser(text=jd_text)
@@ -105,34 +105,34 @@ def feedback_generator():
 
     return feedback
 
-
-if __name__ == "__main__":
-    # path = "pdf_path"
-    path = "/Users/ajabisola/Documents/CVs/JA.pdf"
-    jd_text = '''
-    Dive deep into Digital! For 20 years Intellias has been developing top-tier digital solutions for the world’s leading companies, keeping them in line with the latest technology trends. Join in and provide innovations for the future!
-    Project Overview:
-    We are seeking a Data Scientist with expertise in machine learning, large language models (LLMs), and AI-driven solutions. The ideal candidate will have a strong foundation in traditional statistical models and machine learning techniques, coupled with hands-on experience in LLM development and prompt engineering. This role requires technical proficiency in Python, Docker, and GitLab CI/CD, with a preference for experience in FastAPI. We value individuals who take initiative, demonstrate great work ethics, and focus on the overall success of projects.
-    Requirements:
-    Strong understanding of machine learning models, statistical analysis, and data science principles.
-    GCP proficiency is a must
-    Hands-on experience with LLMs, prompt engineering, and AI model optimization.
-    Proficiency in Python, Docker, and GitLab CI/CD for data science workflows.
-    (Preferred) Experience with FastAPI for API development and deployment.
-    Strong problem-solving skills and a proactive approach to project execution.
-    Excellent teamwork, communication, and initiative in delivering impactful solutions.
-    Ability to work EST hours
-
-    Responsibilities:
-    Develop, train, and optimize traditional machine learning models for data analysis and predictive insights.
-    Apply expertise in LLMs and prompt engineering to create and refine AI-driven applications.
-    Utilize Python, Docker, and GitLab CI/CD for model development, automation, and deployment.
-    (Preferred) Implement FastAPI for building scalable APIs and integrating machine learning models into production environments.
-    Collaborate with cross-functional teams to drive AI-powered innovations and ensure project success.
-    Maintain a high standard of coding practices, version control, and model performance evaluation.
-    '''
-    feedback = feedback_generator()
-    print(feedback['education']['suggestion'])
-    print(feedback['skills']['suggestion'])
-    print(feedback['experience']['suggestion'])
-    print(feedback['responsibilities']['suggestion'])
+#
+# if __name__ == "__main__":
+#     # path = "pdf_path"
+#     path = "/Users/ajabisola/Documents/CVs/JA.pdf"
+#     jd_text = '''
+#     Dive deep into Digital! For 20 years Intellias has been developing top-tier digital solutions for the world’s leading companies, keeping them in line with the latest technology trends. Join in and provide innovations for the future!
+#     Project Overview:
+#     We are seeking a Data Scientist with expertise in machine learning, large language models (LLMs), and AI-driven solutions. The ideal candidate will have a strong foundation in traditional statistical models and machine learning techniques, coupled with hands-on experience in LLM development and prompt engineering. This role requires technical proficiency in Python, Docker, and GitLab CI/CD, with a preference for experience in FastAPI. We value individuals who take initiative, demonstrate great work ethics, and focus on the overall success of projects.
+#     Requirements:
+#     Strong understanding of machine learning models, statistical analysis, and data science principles.
+#     GCP proficiency is a must
+#     Hands-on experience with LLMs, prompt engineering, and AI model optimization.
+#     Proficiency in Python, Docker, and GitLab CI/CD for data science workflows.
+#     (Preferred) Experience with FastAPI for API development and deployment.
+#     Strong problem-solving skills and a proactive approach to project execution.
+#     Excellent teamwork, communication, and initiative in delivering impactful solutions.
+#     Ability to work EST hours
+#
+#     Responsibilities:
+#     Develop, train, and optimize traditional machine learning models for data analysis and predictive insights.
+#     Apply expertise in LLMs and prompt engineering to create and refine AI-driven applications.
+#     Utilize Python, Docker, and GitLab CI/CD for model development, automation, and deployment.
+#     (Preferred) Implement FastAPI for building scalable APIs and integrating machine learning models into production environments.
+#     Collaborate with cross-functional teams to drive AI-powered innovations and ensure project success.
+#     Maintain a high standard of coding practices, version control, and model performance evaluation.
+#     '''
+#     feedback = feedback_generator()
+#     print(feedback['education']['suggestion'])
+#     print(feedback['skills']['suggestion'])
+#     print(feedback['experience']['suggestion'])
+#     print(feedback['responsibilities']['suggestion'])

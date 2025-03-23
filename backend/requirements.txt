@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+spacy
+sentence-transformers
+pdfplumber
+re
+dateparser
+datetime
