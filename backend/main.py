@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from typing import Dict
 from services.feedback_generator import feedback_generator
+import shutil
+import os
 
 
 
@@ -26,9 +28,17 @@ def root():
 
 # Upload Resume and JD files
 @app.post("/compare")
-async def compare_resume_and_jd(resume: str = Form(...), jd: str = Form(...)) -> Dict:
+async def compare_resume_and_jd(resume: UploadFile = File(...), jd: str = Form(...)) -> Dict:
+    path = "temp"
+    os.makedirs(path, exist_ok=True)
 
-    response = feedback_generator(resume,jd)
+    # Save uploaded files
+    resume_path = os.path.join(path, resume.filename)
+
+    with open(resume_path, "wb") as f:
+        shutil.copyfileobj(resume.file, f)
+
+    response = feedback_generator(resume_path,jd)
 
     return response
 
