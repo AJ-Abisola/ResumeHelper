@@ -2,7 +2,7 @@ import PyPDF2
 import pdfplumber
 import spacy
 from spacy.matcher import PhraseMatcher
-import datafile
+from backend.utils import datafile
 import re
 
 class parser:

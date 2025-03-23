@@ -1,5 +1,6 @@
-from parser import parser
-import supportfuncs
+from backend.models.parser import parser
+from backend.utils import supportfuncs
+
 
 def feedback_generator():
 
